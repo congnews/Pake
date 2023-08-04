@@ -15,6 +15,15 @@ export const DEFAULT_PAKE_OPTIONS: PakeCliOptions = {
   iterCopyFile: false,
   systemTrayIcon: '',
   debug: false,
+  inject: [],
+  safeDomain: [],
 };
 
-export const DEFAULT_APP_NAME = 'Pake';
+// Just for cli development
+export const DEFAULT_DEV_PAKE_OPTIONS: PakeCliOptions & {url: string} = {
+  ...DEFAULT_PAKE_OPTIONS,
+  url: 'https://weread.qq.com',
+  name: 'WeRead',
+  safeDomain:['weread.qq.com'],
+  transparent: true,
+}

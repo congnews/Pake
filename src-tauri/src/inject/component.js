@@ -75,6 +75,12 @@ document.addEventListener('DOMContentLoaded', () => {
     background: #fff;
     color: #11182B;
   }
+
+  #pakeUrlInput {
+    min-width: 320px;
+    text-align: left;
+    min-height: 30px;
+  }
   `;
 
   const modalDiv = document.createElement('div');
@@ -90,18 +96,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const urlSubmit = document.getElementById('pakeUrlSubmit');
   const urlClose = document.getElementById('pakeUrlClose');
 
-  urlSubmit.onclick = function () {
+  urlSubmit.onclick = function() {
     const url = urlInput.value;
     if (url) {
       window.location.href = url;
     }
   };
 
-  urlClose.onclick = function () {
+  urlClose.onclick = function() {
     urlModal.style.display = 'none';
   };
 
-  urlInput.addEventListener('keydown', function (event) {
+  urlInput.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
       const url = urlInput.value;
       if (url) {
@@ -110,13 +116,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  document.addEventListener('keydown', function (event) {
+  document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape' && urlModal.style.display === 'block') {
       urlModal.style.display = 'none';
     }
   });
 
-  window.showUrlModal = function () {
+  window.showUrlModal = function() {
     urlModal.style.display = 'block';
     urlInput.focus();
   };
@@ -128,16 +134,16 @@ document.addEventListener('DOMContentLoaded', () => {
     m.style.cssText =
       'max-width:60%;min-width: 80px;padding:0 12px;height: 32px;color: rgb(255, 255, 255);line-height: 32px;text-align: center;border-radius: 8px;position: fixed; bottom:24px;right: 28px;z-index: 999999;background: rgba(0, 0, 0,.8);font-size: 13px;';
     document.body.appendChild(m);
-    setTimeout(function () {
+    setTimeout(function() {
       const d = 0.5;
-      m.style.transition =
-        'transform ' + d + 's ease-in, opacity ' + d + 's ease-in';
+      m.style.transition = 'transform ' + d + 's ease-in, opacity ' + d + 's ease-in';
       m.style.opacity = '0';
-      setTimeout(function () {
+      setTimeout(function() {
         document.body.removeChild(m);
       }, d * 1000);
     }, 3000);
   }
 
   window.pakeToast = pakeToast;
+
 });

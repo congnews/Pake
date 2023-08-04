@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', (_event) => {
+window.addEventListener('DOMContentLoaded', _event => {
   const css = `
     #page #footer-wrapper,
     .drawing-board .toolbar .toolbar-action,
@@ -41,11 +41,23 @@ window.addEventListener('DOMContentLoaded', (_event) => {
       display: none !important;
     }
 
+    #__next header.HeaderBar_header__jn5ju{
+      padding-top: 16px;
+    }
+
+    #__next .ChatPageSidebar_menuFooter__E1KTY,#__next > div.PageWithSidebarLayout_centeringDiv___L9br > div > aside > div > menu > section:nth-child(6) {
+      display: none;
+    }
+
     #page .main_header, .cb-layout-basic--navbar,
     #app .splitpanes.splitpanes--horizontal.no-splitter header,
     .fui-FluentProvider .fui-Button[data-testid="HomeButton"],
     #__next > div.PageWithSidebarLayout_centeringDiv___L9br > aside .ChatPageSidebar_logo__9PIXq {
       padding-top: 20px;
+    }
+
+    #__next > div.overflow-hidden.w-full.h-full  .min-h-\\[20px\\].items-start.gap-4.whitespace-pre-wrap.break-words {
+      word-break: break-all;
     }
 
     #__next .PageWithSidebarLayout_mainSection__i1yOg {
@@ -55,6 +67,11 @@ window.addEventListener('DOMContentLoaded', (_event) => {
 
     #__next > div.PageWithSidebarLayout_centeringDiv___L9br > aside{
       min-width: 260px;
+    }
+
+    #__next > div.overflow-hidden.w-full.h-full.relative.flex.z-0 > div.relative.flex.h-full.max-w-full.flex-1.overflow-hidden > div > main > div.absolute.left-2.top-2.z-10.hidden.md\\:inline-block{
+      margin-top:20px;
+      margin-left: 10px;
     }
 
     .chakra-ui-light #app .chakra-heading,
@@ -82,6 +99,19 @@ window.addEventListener('DOMContentLoaded', (_event) => {
 
     #__next > div.overflow-hidden.w-full.h-full.relative.flex > div.dark.hidden.flex-shrink-0.bg-gray-900.md\\:flex.md\\:w-\\[260px\\].md\\:flex-col > div > div > nav {
       width: 100%;
+    }
+
+    #tabs-sidebar--tabpanel-0 > div.tw-flex.tw-items-center.tw-mb-\\[12px\\].tw-mt-\\[14px\\].tw-px-4 {
+      padding-top: 15px;
+    }
+
+    #tabs-sidebar--tabpanel-1 > div > div.tw-p-\\[16px\\].tw-flex.tw-flex-col.tw-gap-1\\.5{
+      padding-top: 30px;
+    }
+
+    #tabs-sidebar--tabpanel-2 > div > h2 {
+      padding-top: 20px;
+      height: 70px;
     }
 
     .lark > .dashboard-sidebar, .lark > .dashboard-sidebar > .sidebar-user-info , .lark > .dashboard-sidebar .index-module_wrapper_F-Wbq{
@@ -135,16 +165,24 @@ window.addEventListener('DOMContentLoaded', (_event) => {
       margin-top:24px;
     }
 
+
     #react-root [data-testid="placementTracking"] article,
     #react-root a[href*="quick_promote_web"],
     #react-root [data-testid="AppTabBar_Explore_Link"],
     #react-root a[href*="/lists"][role="link"][aria-label],
+    #react-root a[href*="/i/communitynotes"][role="link"][aria-label],
+    #react-root a[role="link"][aria-label="Communities"],
     #react-root a[href*="/i/verified-orgs-signup"][role="link"][aria-label] {
       display: none !important;
     }
 
     #react-root [data-testid="DMDrawer"] {
       visibility: hidden !important;
+    }
+
+    #__next > div.overflow-hidden.w-full.h-full .absolute.bottom-0.left-0.w-full > div.text-center.text-xs {
+      visibility: hidden !important;
+      height: 0px !important;
     }
 
     #react-root [data-testid="primaryColumn"] > div > div {
@@ -284,7 +322,8 @@ window.addEventListener('DOMContentLoaded', (_event) => {
     }
 
     @media (min-width:1024px){
-      #__next .text-base.lg\\:max-w-xl, #__next form.stretch.lg\\:max-w-2xl {
+      #__next .text-base.lg\\:max-w-xl, #__next form.stretch.lg\\:max-w-2xl,
+      #__next > .w-full.h-full .lg\\:max-w-\\[38rem\\] {
         max-width: 44rem;
       }
     }
@@ -298,6 +337,20 @@ window.addEventListener('DOMContentLoaded', (_event) => {
     @media (max-width:767px){
       #__next .overflow-hidden.w-full .max-w-full>.sticky.top-0 {
         padding-top: 20px;
+      }
+
+      #__next .overflow-hidden.w-full main.relative.h-full.w-full.flex-1{
+        padding-bottom: 82px;
+      }
+
+      #__next > div.overflow-hidden.w-full.h-full  main.relative.h-full.w-full.flex-1 > .flex-1.overflow-hidden .h-32.md\\:h-48.flex-shrink-0{
+        height: 0px;
+      }
+    }
+
+    @media (max-width:565px){
+      #__next .overflow-hidden.w-full main.relative.h-full.w-full.flex-1{
+        padding-bottom: 98px;
       }
     }
 

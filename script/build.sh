@@ -32,10 +32,8 @@ total=$(sed -n '$=' app.csv)
 export total=$((total-1))
 export index=1
 
-export package_prefix="com-tw93"
-export identifier_prefix="com.tw93"
-
-
+export package_prefix="com-pake"
+export identifier_prefix="com.pake"
 
 if [[ "$OSTYPE" =~ ^linux ]]; then
     echo "==============="
@@ -61,12 +59,18 @@ do
     package_title=${arr[1]}
     package_zh_name=${arr[2]}
     url=${arr[3]}
+    domain=${url//http*:\/\//}
+    domain=${domain%%/*}
 
     # replace package info
     # clear url with regex
     $sd "\"url\": \"(.*?)\"," "\"url\": \"\"," src-tauri/pake.json
     # replace url with no regex
     $sd -s "\"url\": \"\","  "\"url\": \"${url}\"," src-tauri/pake.json
+
+    # replace dangerousRemoteDomainIpcAccess  domain
+    $sd "\"domain\": \"(.*?)\"," "\"domain\": \"\","  src-tauri/tauri.conf.json
+    $sd -s "\"domain\": \"\","  "\"domain\": \"${domain}\"," src-tauri/tauri.conf.json
 
     # for apple, need replace title
     if [[ "$OSTYPE" =~ ^darwin ]]; then
@@ -147,7 +151,7 @@ do
         $sd "Icon=.*" "Icon=" "${new_desktop}"
         $sd "Name=.*" "Name=" "${new_desktop}"
         $sd "Name\[zh_CN\]=.*" "Name[zh_CN]=" "${new_desktop}"
-        # repleace dekstop content with no reg
+        # replace desktop content with no reg
         $sd -s "Exec=" "Exec=${package_prefix}-${package_name}" "${new_desktop}"
         $sd -s "Icon=" "Icon=${package_prefix}-${package_name}" "${new_desktop}"
         $sd -s "Name=" "Name=${package_title}" "${new_desktop}"
